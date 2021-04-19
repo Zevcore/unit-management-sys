@@ -32,20 +32,26 @@
 <header id="header" class="sticky-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-        <h1 class="logo"><a href="index.html">UMS</a></h1>
+        <h1 class="logo"><a href="{{route('home')}}">UMS</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="{{route('home')}}">Strona Główna</a></li>
+                <li><a class="nav-link " href="{{route('home')}}">Strona Główna</a></li>
                 @if(Auth::check())
-                    <li><a class="nav-link scrollto" href="{{route('dashboard')}}">Panel jednostki</a></li>
+                    <li><a class="nav-link " href="{{route('dashboard')}}">Panel jednostki</a></li>
                 @else
-                    <li><a class="nav-link scrollto" href="{{route('login')}}">Zaloguj się</a></li>
-                    <li><a class="nav-link scrollto" href="{{route('register')}}">Zarejestruj się</a></li>
+                    <li><a class="nav-link " href="{{route('login')}}">Zaloguj się</a></li>
+                    <li><a class="nav-link " href="{{route('register')}}">Zarejestruj się</a></li>
                 @endif
                 <li><a class="nav-link scrollto" href="#contact">Support</a></li>
+                @if(Auth::check())
+                    <form method="post" class="p-2 ml-50" action="{{route('logout')}}">
+                        @csrf
+                        <button class=" btn btn-primary" type="submit" value="Wyloguj">Wyloguj</button>
+                    </form>
+                @endif
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
