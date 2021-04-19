@@ -33,15 +33,29 @@ class RegisteredUserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $user = User::create([
-            'user' => $request->user,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'nip' => $request->nip,
-            'regon' => $request->regon,
-            'address' => $request->address
-        ]);
+        $user = new User();
+
+//        dd($request);
+//        die();
+//        $user = User::create([
+//            'user' => $request->user,
+//            'name' => $request->name,
+//            'email' => $request->email,
+//            'password' => Hash::make($request->password),
+//            'nip' => $request->nip,
+//            'regon' => $request->regon,
+//            'address' => $request->address
+//        ]);
+
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->nip = $request->nip;
+        $user->regon = $request->regon;
+        $user->user = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
 
         event(new Registered($user));
 
