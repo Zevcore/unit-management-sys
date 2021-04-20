@@ -19,6 +19,8 @@ class CreateFirefightersTable extends Migration
             $table->string('middle_name');
             $table->string('surname');
             $table->date('birth_date');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
