@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/icons.html">
+                        <a class="nav-link" href="{{route('firefighter.index')}}">
                             <i class="ni ni-planet text-orange"></i>
                             <span class="nav-link-text">Strażacy</span>
                         </a>
