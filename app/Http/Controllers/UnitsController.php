@@ -71,7 +71,7 @@ class UnitsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('dashboard.unit.edit', ['unit' => Unit::find($id)]);
     }
 
     /**
@@ -81,9 +81,21 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UnitStoreRequest $request, $id)
     {
-        //
+        $unit = Unit::find($id);
+
+        $unit->name = $request->name;
+        $unit->city = $request->city;
+        $unit->street = $request->street;
+        $unit->number = $request->number;
+        $unit->postcode = $request->postcode;
+        $unit->nip = $request->nip;
+        $unit->regon = $request->regon;
+
+        $unit->save();
+
+        return redirect()->route('dashboard');
     }
 
     /**
