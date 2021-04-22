@@ -21,15 +21,17 @@
         </div>
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt--6">
+    <div class="container-fluid mt--100">
         <div class="row">
-            <div class="col-xl-8">
+            <div class="col-xl-12">
                 <div class="card bg-default">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-light text-uppercase ls-1 mb-1">Podgląd</h6>
                                 <h5 class="h3 text-white mb-0">Lista strażaków</h5>
+                                <hr>
+                                <a href="{{route('firefighter.create')}}" class="btn btn-primary">Dodaj nowy</a>
                             </div>
                         </div>
                     </div>
@@ -39,10 +41,15 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Imie</th>
-                                <th scope="col">Drugie imię</th>
+                                <th scope="col">Imię</th>
                                 <th scope="col">Nazwisko</th>
+                                <th scope="col">Drugie imię</th>
+                                <th scope="col">Płeć</th>
                                 <th scope="col">Data urodzenia</th>
+                                <th scope="col">Imię ojca</th>
+                                <th scope="col">PESEL</th>
+                                <th scope="col">Seria i nr. dowodu</th>
+                                <th scope="col">Wykształcenie</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -57,43 +64,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
-                <div class="card">
-                    <div class="card-header bg-transparent">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h6 class="text-uppercase text-muted ls-1 mb-1"></h6>
-                                <h5 class="h3 mb-0">Dodaj nowy rekord</h5>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <!-- Chart -->
-                        <form method="POST" action="{{route('firefighter.store')}}" class="form-column">
-                            @csrf
-                            <div class="form-floating mb-3">
-                                <input id="name" type="text" name="name" class="form-control" placeholder="Imię">
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input id="middle_name" type="text" name="middle_name" class="form-control" placeholder="Drugie imię (opcjonalnie)">
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input id="surname" type="text" name="surname" class="form-control" placeholder="Nazwisko">
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input id="birth_date" type="date" name="birth_date" class="form-control" placeholder="Data urodzenia (rrrr-mm-dd)">
-                            </div>
-                            <input type="hidden" value="{{Auth::user()->id}}" name="user_id">
-                            <div class="form-floating mb-3">
-                                <input class="btn btn-primary" id="submit" type="submit" name="submit" class="form-control" value="Dodaj">
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>

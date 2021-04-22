@@ -23,9 +23,9 @@ class CreateUnitsTable extends Migration
             $table->string('nip');
             $table->string('regon');
             $table->unsignedBigInteger('user_id')->index();
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
         });
     }
 

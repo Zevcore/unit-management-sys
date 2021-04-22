@@ -26,7 +26,7 @@ class FirefightersController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.firefighter.create');
     }
 
     /**
