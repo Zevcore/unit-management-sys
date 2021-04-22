@@ -47,18 +47,13 @@ class RegisteredUserController extends Controller
 //            'address' => $request->address
 //        ]);
 
-        $user->name = $request->name;
-        $user->address = $request->address;
-        $user->nip = $request->nip;
-        $user->regon = $request->regon;
-        $user->user = $request->name;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
         $user->save();
 
         event(new Registered($user));
-
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

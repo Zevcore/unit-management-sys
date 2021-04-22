@@ -304,7 +304,7 @@
                     <img alt="Image placeholder" src="{{asset('admin/assets/img/theme/team-4.jpg')}}">
                   </span>
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <span class="mb-0 text-sm font-weight-bold">{{Auth::user()->user}}</span>
+                                    <span class="mb-0 text-sm font-weight-bold">{{Auth::user()->username}}</span>
                                 </div>
                             </div>
                         </a>
