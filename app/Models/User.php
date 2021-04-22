@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function firefighters() {
         return $this->hasMany(Firefighter::class);
     }
+
+    public function unit() {
+        return $this->hasOne(Unit::class);
+    }
 }
